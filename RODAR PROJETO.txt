@@ -1,0 +1,13 @@
+php artisan migrate:fresh
+
+php artisan permission:create-permission admin
+php artisan permission:create-permission user
+
+php artisan db:seed
+
+php artisan serve
+
+
+
+// Rodar para inserir informaçoes no banco
+packagist.org/packages/darryldecode/cart

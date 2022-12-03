@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('compras', function (Blueprint $table) {
             $table->id();
-            $table->string('status', 20);
+            $table->boolean('status');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
         });

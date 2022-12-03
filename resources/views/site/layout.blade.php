@@ -15,9 +15,8 @@
 
 </head>
 
-<body class="background-full">
-    <div class="container">
-
+<body id="MODEDARK" class="background-full">
+    <div id="MODEDARK1" class="text-color container">
         <div class="btn2">
             <img class="light-mode fixed" src="{{ asset('images/light.png') }}">
             <img class="mode-dark fixed" src="{{ asset('images/dark-mode.png') }}">
@@ -31,22 +30,54 @@
                 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ">
                         <li class="{{ (Route::current()->getName() === 'site.home' ? ' active' : '') }}">
+                            @if (Route::has('login'))
+                            @auth
                             <a class="nav-link px-2 text-white" href="{{ route('site.carrinho') }}">
                                 <img src="{{ asset('images/carrinho-de-compras.png') }}" width="40rem">
+                                <span class="bg-danger border border-light rounded-circle">
+                                </span>
                             </a>
+
+                            @else
+                            @if (Route::has('login'))
+                            <a class="nav-link px-2 text-white" href="{{ route('login') }}">
+                                <img src="{{ asset('images/carrinho-de-compras.png') }}" width="40rem">
+                            </a>
+                            @endif
+                            @endauth
+                            @endif
                         </li>
 
                         <li>
-                            <div class="dropdown">
+                            @if (Route::has('login'))
+                            <div class="dropdown text-dark">
                                 <a class="btn dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
                                     <i style="font-size: 1.5rem;" class="bi bi-person-circle"></i>
+                                    @auth
+                                    {{ Auth::user()->name }}
+                                    @endauth
                                 </a>
+                                @if (Route::has('login'))
+                                <div class="dropdown-menu text-dark" style="margin-left: -50px;">
+                                    @auth
+                                    <a class="dropdown-item text-dark" href="{{ route('profile.edit') }}">Perfil</a>
+                                    <!-- Authentication -->
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
 
-                                <div class="dropdown-menu" style="margin-left: -100px;">
-                                    <a class="dropdown-item" href="{{ route('site.login') }}">Acessar
-                                    </a>
+                                        <a class="dropdown-item text-dark" href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                            {{ __('Sair') }}
+                                        </a>
+                                    </form>
+                                    @else
+                                    <a class="dropdown-item text-dark" href="{{ route('login') }}">Acessar</a>
+                                    @endauth
                                 </div>
+                                @endif
                             </div>
+                            @endif
+
                         </li>
                     </ul>
                 </div>
@@ -68,11 +99,12 @@
                             Produtos
                         </a>
                     </li>
-                    <li class="{{ (Route::current()->getName() === 'site.home' ? ' active' : '') }}">
-                        <a class="text-color nav-link px-2 " href="#">
+                    <li class="{{ (Route::current()->getName() === 'site.sobre' ? ' active' : '') }}">
+                        <a class="text-color nav-link px-2 " href="{{route('site.sobre')}}">
                             Sobre
                         </a>
                     </li>
+                    @can('admin')
                     <div class="dropdown">
                         <a class="btn dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
                             Area Administrativa
@@ -90,6 +122,7 @@
                             </a>
                         </div>
                     </div>
+                    @endcan
                 </ul>
             </div>
         </header>
@@ -164,8 +197,7 @@
         </footer>
     </div>
 
-    <script type="text/javascript" src="{{ asset('resources/js/script.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('resources/js/login.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/script.js') }}"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 

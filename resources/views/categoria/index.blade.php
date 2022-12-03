@@ -14,12 +14,14 @@
     <table class="table table-bordered">
         <tr>
             <th>#</th>
+            <th>Nome </th>
             <th>Descrição</th>
             <th width="280px">Ação</th>
         </tr>
         @foreach ($categorias as $categoria)
         <tr>
             <td>{{ ++$i }}</td>
+            <td>{{ $categoria->nome }}</td>
             <td>{{ $categoria->descricao }}</td>
             <td>
                 <form action="{{ route('categoria.destroy', $categoria->id) }}" method="POST">

@@ -17,11 +17,13 @@ class ProdutoManagerController extends Controller
     public function index()
     {
         //Responsavel por exibir a página de produtos do site 
-        $produtos = Produtos::latest()->paginate(5);
-
-        return view('produto.index', compact('produtos'))
+        $categorias = Categorias::all();
+        $fornecedores = Fornecedores::all();
+        $produtos = Produtos::latest()->simplePaginate(4);
+        return view('produto.index', compact('produtos', 'categorias', 'fornecedores'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,12 +34,8 @@ class ProdutoManagerController extends Controller
     {
         $categorias = Categorias::all();
         $fornecedores = Fornecedores::all();
-        $data = [
-            'fornecedores' => $fornecedores,
-            'categorias' => $categorias
-        ];
 
-        return view('produtosmanager.create', compact('data'));
+        return view('produto.create', compact('categorias', 'fornecedores'));
     }
 
     /**
@@ -55,8 +53,6 @@ class ProdutoManagerController extends Controller
             'preco' => 'required',
             'quantidade' => 'required',
             'imagem' => 'required',
-            'id_Fornecedor' => 'required',
-            'id_Categoria ' => 'required'
         ]);
 
 
@@ -69,7 +65,7 @@ class ProdutoManagerController extends Controller
         $produto->id_Categoria = $request->id_Categoria;
         $produto->imagem = "";
 
-        $dirImagem = "images/produtos";
+        $dirImagem = "images/produtos/";
 
         if ($request->hasFile('imagem') && $request->file('imagem')->isValid()) {
             $requestImage = $request->imagem;
@@ -110,8 +106,10 @@ class ProdutoManagerController extends Controller
     {
         // Responsavel por editar o conteudo selecionado
         $produto = Produtos::findOrFail($id);
+        $categorias = Categorias::all();
+        $fornecedores = Fornecedores::all();
 
-        return view('produto.edit', compact('produto'));
+        return view('produto.edit', compact('produto', 'categorias', 'fornecedores'));
     }
 
     /**
@@ -130,15 +128,13 @@ class ProdutoManagerController extends Controller
             'preco' => 'required',
             'quantidade' => 'required',
             'imagem' => 'required',
-            'id_Fornecedor' => 'required',
-            'id_Categoria ' => 'required'
         ]);
 
         $data = $request->all();
 
         Produtos::findOrFail($id)->update($data);
 
-        return redirect()->route('produtos.index')->with('success', 'Produto atualizado com sucesso!');
+        return redirect()->route('produto.index')->with('success', 'Produto atualizado com sucesso!');
     }
 
     /**
@@ -151,6 +147,6 @@ class ProdutoManagerController extends Controller
     {
         Produtos::findOrFail($id)->delete();
 
-        return redirect()->route('produtos.index')->with('success', 'Produto excluido com sucesso!');
+        return redirect()->route('produto.index')->with('success', 'Produto excluido com sucesso!');
     }
 }

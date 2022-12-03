@@ -19,19 +19,27 @@
 
     <form action="{{ route('categoria.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Descrição:</strong>
-                    <textarea class="form-control" style="height:150px" name="descricao" placeholder="Descrição"></textarea>
+        <div style="margin: auto">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong class="text-color">Nome:</strong>
+                        <input class="form-control" name="nome" placeholder="Nome" />
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Salvar</button>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong class="text-color">Descrição:</strong>
+                        <textarea class="form-control" style="height:150px" name="descricao" placeholder="Descrição"></textarea>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
             </div>
         </div>
-
     </form>
 </div>
 @endsection

@@ -24,11 +24,19 @@
         @foreach ($produtos as $produto)
         <tr>
             <td>{{ ++$i }}</td>
-            <td>{{ $produto->id_Categoria }}</td>
+            @foreach($categorias as $categoria)
+            @if($produto->id_Categoria == $categoria->id)
+            <td>{{ $categoria->nome }}</td>
+            @endif
+            @endforeach
             <td>{{ $produto->nome }}</td>
             <td>{{ $produto->preco }}</td>
             <td>{{ $produto->quantidade }}</td>
-            <td>{{ $produto->id_Fornecedor }}</td>
+            @foreach($fornecedores as $fornecedor)
+            @if($produto->id_Fornecedor == $fornecedor->id)
+            <td>{{ $fornecedor->nome }}</td>
+            @endif
+            @endforeach
             <td>
                 <form action="{{ route('produto.destroy', $produto->id) }}" method="POST">
 
@@ -45,8 +53,10 @@
         </tr>
         @endforeach
     </table>
+    <div id="sytleButtonPaginate">
+        {!! $produtos->links() !!}
+    </div>
 
-    {!! $produtos->links() !!}
 </div>
 
 @endsection

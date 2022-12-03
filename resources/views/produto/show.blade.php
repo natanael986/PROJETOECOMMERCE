@@ -8,7 +8,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Categoria:</strong>
-                {{ $produto->categoria }}
+                {{ $produto->id_Categoria}}
             </div>
             <div class="form-group">
                 <strong>Nome:</strong>
@@ -29,6 +29,9 @@
             <div class="form-group">
                 <strong>Descrição:</strong>
                 {{ $produto->descricao }}
+            </div>
+            <div class="form-group">
+                <img src="{{ asset($produto->imagem) }}" alt="{{ $produto->nome }}">
             </div>
         </div>
     </div>

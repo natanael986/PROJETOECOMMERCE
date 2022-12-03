@@ -23,43 +23,43 @@
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Nome:</strong>
+                    <strong class="text-color">Nome:</strong>
                     <input type="input" name="nome" class="form-control" placeholder="Nome">
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group">
-                    <strong>Telefone:</strong>
+                    <strong class="text-color">Telefone:</strong>
                     <input type="input" name="telefone" class="form-control" placeholder="99999-9999" maxlength="11">
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group">
-                    <strong>CEP:</strong>
-                    <input type="input" name="cep" class="form-control" placeholder="CEP">
+                    <strong class="text-color">CEP:</strong>
+                    <input type="input" name="cep" class="form-control" placeholder="CEP" maxlength="8">
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Endereço:</strong>
+                    <strong class="text-color">Endereço:</strong>
                     <input type="input" name="logradouro" class="form-control" placeholder="EX: Rua Galindo Neves">
                 </div>
             </div>
             <div class="col-1">
                 <div class="form-group">
-                    <strong>Estado:</strong>
+                    <strong class="text-color">Estado:</strong>
                     <input type="input" name="estado" class="form-control" placeholder="SP">
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <strong>cidade:</strong>
+                    <strong class="text-color">cidade:</strong>
                     <input type="input" name="cidade" class="form-control" placeholder="Presidente Prudente">
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Razão Social:</strong>
+                    <strong class="text-color">Razão Social:</strong>
                     <input type="input" name="razao_social" class="form-control" placeholder="Razão Social">
                 </div>
             </div>

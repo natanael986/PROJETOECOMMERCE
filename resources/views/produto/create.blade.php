@@ -23,9 +23,9 @@
         <div class="row">
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Categoria: </strong>
+                    <strong class="text-color">Categoria: </strong>
                     <select name="id_Categoria" class="form-control" placeholder="Fornecedor">
-                        @foreach ($data['categorias'] as $categoria)
+                        @foreach ($categorias as $categoria)
                         <option value="{{$categoria->id}}">
                             {{$categoria->nome}}
                         </option>
@@ -35,33 +35,33 @@
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Nome: </strong>
+                    <strong class="text-color">Nome: </strong>
                     <input type="input" name="nome" class="form-control" placeholder="Nome">
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group">
-                    <strong>Preço: </strong>
+                    <strong class="text-color">Preço: </strong>
                     <input type="input" name="preco" class="form-control" placeholder="EX: 99.99" maxlength="11">
                 </div>
             </div>
             <div class="col-2">
                 <div class="form-group">
-                    <strong>Quantidade:</strong>
+                    <strong class="text-color">Quantidade:</strong>
                     <input type="input" name="quantidade" class="form-control" placeholder="EX: 12">
                 </div>
             </div>
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Descrição:</strong>
+                    <strong class="text-color">Descrição:</strong>
                     <input type="input" name="descricao" class="form-control" placeholder="Informe a descrição">
                 </div>
             </div>
-            <div class="col-1">
+            <div class="col-4">
                 <div class="form-group">
-                    <strong>Fornecedor:</strong>
+                    <strong class="text-color">Fornecedor:</strong>
                     <select name="id_Fornecedor" class="form-control" placeholder="Fornecedor">
-                        @foreach ($data['fornecedores'] as $fornecedor)
+                        @foreach ($fornecedores as $fornecedor)
                         <option value="{{$fornecedor->id}}">
                             {{$fornecedor->nome}}
                         </option>
@@ -72,7 +72,7 @@
 
             <div class="col-4">
                 <div class="form-group">
-                    <strong>Imagem:</strong>
+                    <strong class="text-color">Imagem:</strong>
                     <input type="file" name="imagem" class="form-control-file">
                 </div>
             </div>

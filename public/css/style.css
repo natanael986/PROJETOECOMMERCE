@@ -9,6 +9,33 @@ body {
 
 }
 
+#sytleButtonPaginate nav.span {
+    background-color: #180D2B;
+
+}
+
+.input-style {
+    background: #f9f9f9;
+    border-radius: 5px;
+    border: solid 2px #8F3BFF;
+    margin-bottom: 25px;
+    margin-right: 3px;
+    width: 3rem;
+    padding: 5px;
+
+    text-align: center;
+    float: left;
+}
+
+.produtoCompra {
+    display: flex;
+    justify-content: center;
+}
+
+.produtoCompra button {
+    height: 40px;
+}
+
 .text-color div {
     color: #180D2B;
 
@@ -24,12 +51,27 @@ body {
     font-weight: bold;
 }
 
+.text-color strong {
+    color: #180D2B;
+    font-weight: bold;
+}
+
+.text-color.active strong {
+    color: #f6f6f6;
+    font-weight: bold;
+}
+
 .text-color a {
     color: #180D2B;
     font-weight: bold;
 }
 
 .text-color.active a {
+    color: #f6f6f6;
+    font-weight: bold;
+}
+
+.text-color.active div {
     color: #f6f6f6;
     font-weight: bold;
 }
@@ -119,6 +161,17 @@ body {
 .marketing .col-lg-4 p {
     margin-right: .75rem;
     margin-left: .75rem;
+}
+
+.style-two {
+    margin: auto;
+    width: 50rem;
+    padding: 2rem;
+}
+.style-two {
+    margin: auto;
+    width: 100%m;
+    padding: 2rem;
 }
 
 /* rtl:end:ignore */
@@ -262,4 +315,16 @@ body {
     height: 18px;
     border-radius: 40px;
     user-select: none;
+}
+
+.FiltrosDIV {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.Filtros {
+    background-color: #180D2B;  
+    width: 50rem;
+    height: 9rem;
 }
