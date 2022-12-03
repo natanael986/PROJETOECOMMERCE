@@ -87,44 +87,55 @@
                     <img src="{{ asset('images/Logo.png') }}" width="200px" height="100px">
                 </a>
             </div>
-            <div class="text-color">
-                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ">
-                    <li class="{{ (Route::current()->getName() === 'site.home' ? ' active' : '') }}">
-                        <a class="text-color nav-link px-2 " href="{{ route('site.home') }}">
-                            Inicio
-                        </a>
-                    </li>
-                    <li class="{{ (Route::current()->getName() === 'produto.index' ? ' active' : '') }}">
-                        <a class="text-color nav-link px-2 " href="{{ route('site.produtos') }}">
-                            Produtos
-                        </a>
-                    </li>
-                    <li class="{{ (Route::current()->getName() === 'site.sobre' ? ' active' : '') }}">
-                        <a class="text-color nav-link px-2 " href="{{route('site.sobre')}}">
-                            Sobre
-                        </a>
-                    </li>
-                    @can('admin')
-                    <div class="dropdown">
-                        <a class="btn dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
-                            Area Administrativa
-                        </a>
-
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="{{ route('produto.index') }}">
-                                Gerenciar Produtos
-                            </a>
-                            <a class="dropdown-item" href="{{ route('categoria.index') }}">
-                                Gerenciar Categorias
-                            </a>
-                            <a class="dropdown-item" href="{{ route('fornecedor.index') }}">
-                                Gerenciar Fornecedores
-                            </a>
+            <div class="FiltrosDIV">
+                <div class="Filtros">
+                    <div class="InputPesquisaDIV">
+                        <div class="InputPesquisaDIV">
+                            <form action="{{ route('site.produtos') }}" method="get">
+                                <input typt="search" name="search" max="50" />
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                            </form>
                         </div>
                     </div>
-                    @endcan
-                </ul>
-            </div>
+                </div>
+                <div class="text-color">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ">
+                        <li class="{{ (Route::current()->getName() === 'site.home' ? ' active' : '') }}">
+                            <a class="text-color nav-link px-2 " href="{{ route('site.home') }}">
+                                Inicio
+                            </a>
+                        </li>
+                        <li class="{{ (Route::current()->getName() === 'produto.index' ? ' active' : '') }}">
+                            <a class="text-color nav-link px-2 " href="{{ route('site.produtos') }}">
+                                Produtos
+                            </a>
+                        </li>
+                        <li class="{{ (Route::current()->getName() === 'site.sobre' ? ' active' : '') }}">
+                            <a class="text-color nav-link px-2 " href="{{route('site.sobre')}}">
+                                Sobre
+                            </a>
+                        </li>
+                        @can('admin')
+                        <div class="dropdown">
+                            <a class="btn dropdown-toggle" role="button" data-toggle="dropdown" aria-expanded="false">
+                                Area Administrativa
+                            </a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('produto.index') }}">
+                                    Gerenciar Produtos
+                                </a>
+                                <a class="dropdown-item" href="{{ route('categoria.index') }}">
+                                    Gerenciar Categorias
+                                </a>
+                                <a class="dropdown-item" href="{{ route('fornecedor.index') }}">
+                                    Gerenciar Fornecedores
+                                </a>
+                            </div>
+                        </div>
+                        @endcan
+                    </ul>
+                </div>
         </header>
 
 

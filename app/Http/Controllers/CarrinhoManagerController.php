@@ -24,16 +24,6 @@ class CarrinhoManagerController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -41,15 +31,6 @@ class CarrinhoManagerController extends Controller
      */
     public function store(Request $request)
     {
-        //     \Darryldecode\Cart\Facades\CartFacade::add([
-        //         'id' => $request->id,
-        //         'name' => $request->nome,
-        //         'price' => $request->preco,
-        //         'quantity' => $request->quantidade,
-        //         'attributes' => array(
-        //             'image' => $request->imagem,
-        //         )
-        //    ]);
 
         $compras = new Compra;
         $compras->user_id = $request->user_id;
@@ -67,40 +48,6 @@ class CarrinhoManagerController extends Controller
         $carrinho->save();
 
         return redirect()->route('site.carrinho');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\m  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\m  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\m  $m
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-        //
     }
 
     /**

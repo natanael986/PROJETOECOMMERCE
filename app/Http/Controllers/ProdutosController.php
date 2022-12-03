@@ -15,10 +15,20 @@ class ProdutosController extends Controller
 
     public function index()
     {
-        $compras = Compra::all();
-        $produtos = Produtos::orderBy("nome")->get();
+        $search = request('search');
 
-        return view('site.produtos', compact('produtos', 'compras'));
+        if ($search) {
+            $produtos = Produtos::where([
+                ['nome', 'like', '%' . $search . '%']
+            ])->get();
+        } else {
+            $produtos = Produtos::all();
+        }
+
+        $compras = Compra::all();
+        // $produtos = Produtos::all();
+
+        return view('site.produtos', compact('produtos', 'compras'),  ['produtos' => $produtos, 'search' => $search]);
     }
 
     public function show($id)
@@ -33,5 +43,4 @@ class ProdutosController extends Controller
 
         return view('site.showproduto', compact('produto', 'categorias', 'fornecedores', 'compras'));
     }
-
 }

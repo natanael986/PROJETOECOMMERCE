@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Categorias;
+use App\Models\Compra;
 use App\Models\Fornecedores;
 use App\Models\Produtos;
 use App\Models\User;
@@ -63,6 +64,14 @@ class Inserir extends Seeder
         Categorias::create([
             'nome' => 'Demon Slayer',
             'descricao' => 'Artes baseadas na obra de Demon Slayer, animação japosesa!!!',
+        ]);
+        Compra::create([
+            'user_id' => 1,
+            'status' => 0,
+        ]);
+        Compra::create([
+            'user_id' => 1,
+            'status' => 0,
         ]);
 
         Produtos::create([

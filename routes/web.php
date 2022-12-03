@@ -31,7 +31,6 @@ Route::get('/', [HomeController::class, 'index'])->name('site.home');
 Route::get('/carrinho_compras', [CarrinhoManagerController::class, 'index'])->name('site.carrinho');
 Route::post('/carrinho_compras', [CarrinhoManagerController::class, 'store'])->name('site.carrinho');
 Route::resource('/carrinho', CarrinhoManagerController::class);
-// Route::post('/carrinho_compras', [CarrinhoManagerController::class, 'destroy'])->name('site.carrinho');
 
 Route::resource('/categoria', CategoriaController::class);
 

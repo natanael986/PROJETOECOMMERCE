@@ -6,29 +6,6 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <!-- <div class="FiltrosDIV">
-                    <div class="Filtros">
-                        <form action="{{ route('site.produtos') }}" method="POST">
-                            <select name="filtro" class="form-control" placeholder="Fornecedor">
-                                @foreach ($produtos as $produto)
-                                <option value="{{$produto->id}}">
-                                    {{$produto->nome}}
-                                </option>
-                                @endforeach
-                            </select>
-                            <button style="width: 100%" type="submit" class="btn btn-primary">Salvar</button>
-                        </form>
-                    </div>
-                </div>
-                @foreach($produtos as $produto)
-                <div>
-                    <ul>
-                        @if($produto->id == $produto->id)
-                        <li><a type="radius">{{ $produto->nome }}</a></li>
-                        @endif
-                    </ul>
-                </div>
-                @endforeach -->
                 <div class="row m-auto">
                     @foreach($produtos as $produto)
                     <div class="col ms-5">
@@ -61,6 +38,9 @@
                         </div>
                     </div>
                     @endforeach
+                    @if(count($produtos) == 0 && $search)
+                    <h3>NÃO FOI POSSÍVEL ENCONTRAR {{$search}}</h3>
+                    @endif
                 </div>
 
             </div>
